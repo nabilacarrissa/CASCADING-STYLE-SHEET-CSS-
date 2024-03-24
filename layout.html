@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Grid Layout</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr; /* 3 kolom dengan lebar proporsional */
+            grid-template-rows: 100px 1fr 100px; /* 3 baris dengan tinggi tetap di baris pertama dan terakhir */
+            gap: 10px; /* jarak antar sel */
+            height: 100vh; /* set tinggi kontainer sesuai viewport */
+        }
+
+        .header {
+            grid-column: 1 / 4; /* mengambil 3 kolom */
+            background-color: #ea77a5;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .sidebar {
+            background-color: #e7acca;
+            padding: 20px;
+        }
+
+        .main-content {
+            background-color: #e7acca;
+            padding: 20px;
+        }
+
+        .footer {
+            grid-column: 1 / 4; /* mengambil 3 kolom */
+            background-color: #f050a5;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            /* Ubah tata letak menjadi satu kolom di layar yang lebih kecil */
+            .container {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto;
+            }
+
+            .header, .footer {
+                grid-column: 1; /* Mengambil satu kolom */
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        Header
+    </div>
+    <div class="sidebar">
+        Menu
+    </div>
+    <div class="main-content">
+        Main
+    </div>
+    <div class="main-content">
+        Right
+    </div>
+    <div class="footer">
+        Footer
+    </div>
+</div>
+
+</body>
+</html>
